@@ -1,7 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logout } = useContext(AuthContext);
+  const location = useLocation();
+
+  const handleLogout = () => {
+    logout()
+      .then()
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="mx-10 md:mx-20 my-5">
       <div className="navbar bg-base-100">
@@ -33,10 +42,7 @@ const Navbar = () => {
                 <Link to="/blog">Blog</Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact Us</Link>
+                <Link to="/contact">All Toy Figurs</Link>
               </li>
               <li>
                 <Link to="/login">Login</Link>
@@ -59,22 +65,87 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to="/">Home</Link>
+              <Link
+                style={{ textDecoration: "none" }}
+                className={`${
+                  location.pathname === "/"
+                    ? "bg-red-500 p-5 border rounded-lg"
+                    : ""
+                }`}
+                to="/"
+              >
+                Home
+              </Link>
             </li>
-            <li>
+            <li
+              style={{ textDecoration: "none" }}
+              className={`${
+                location.pathname === "/blog"
+                  ? "bg-red-500 p-5 border rounded-lg"
+                  : ""
+              }`}
+              to="/blog"
+            >
               <Link to="/blog">Blog</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link style={{ textDecoration: "none" }}
+                className={`${
+                  location.pathname === "/allToys"
+                    ? "bg-red-500 p-5 border rounded-lg"
+                    : ""
+                }`}
+                to="/allToys"
+              >All Toys Figure</Link>
             </li>
             <li>
-              <Link to="/contact">Contact Us</Link>
+              {user && (
+                <div>
+                  <img
+                    title={user.displayName}
+                    className="rounded-xl"
+                    style={{ width: "30px", height: "30px" }}
+                    src={user.photoURL}
+                    alt=""
+                  />
+                </div>
+              )}
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              {user ? (
+                <div className="">
+                  <button onClick={handleLogout}>Logout</button>
+                </div>
+              ) : (
+                <Link
+                  style={{ textDecoration: "none" }}
+                  className={`${
+                    location.pathname === "/login"
+                      ? "bg-red-500 p-5 border rounded-lg"
+                      : ""
+                  }`}
+                  to="/login"
+                >
+                  Login
+                </Link>
+              )}
             </li>
             <li>
-              <Link to="/register">Sign Up</Link>
+              {user ? (
+                <></>
+              ) : (
+                <Link
+                  style={{ textDecoration: "none" }}
+                  className={`${
+                    location.pathname === "/register"
+                      ? "bg-red-500 p-5 border rounded-lg"
+                      : ""
+                  }`}
+                  to="/register"
+                >
+                  Register
+                </Link>
+              )}
             </li>
           </ul>
         </div>
