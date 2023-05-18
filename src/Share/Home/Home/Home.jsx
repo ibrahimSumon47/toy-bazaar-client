@@ -1,10 +1,15 @@
 import React from 'react';
-import Navbar from '../Navbar';
+import Main from '../../Layout/Main';
+import Banner from '../Banner';
+import Brands from '../Brands';
 
 const Home = () => {
     return (
-        <div className='px-10 md:px-52'>
-            <Navbar/>
+        <div className='mx-10 md:mx-52 my-5'>
+            <Main/>
+            <Banner/>
+            <Brands/>
+
         </div>
     );
 };
