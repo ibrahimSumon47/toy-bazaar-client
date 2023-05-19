@@ -9,6 +9,8 @@ import Login from "./component/Login/Login.jsx";
 import Register from "./component/Register/Register.jsx";
 import AuthProvider from "./component/AuthProvider/AuthProvider.jsx";
 import AllToys from "./component/AllToys/AllToys";
+import AddAToy from "./component/Secret/AddAToy";
+import MyToys from "./component/Secret/MyToys";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +36,16 @@ const router = createBrowserRouter([
       {
         path: "/allToys",
         element:<AllToys/>
-      }
+      },
+      {
+        path: "addAtoy",
+        element: <AddAToy/>
+      },
+      {
+        path: "myToys",
+        element:<MyToys/>
+      },
+      
     ],
   },
 ]);
