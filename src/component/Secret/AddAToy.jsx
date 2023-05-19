@@ -17,7 +17,7 @@ const AddAToy = () => {
     const quantity = form.quantity.value;
 
     const toyAddedBy = {
-      sellerDetails: photo,
+      photo,
       toyName,
       sellerName,
       email,
