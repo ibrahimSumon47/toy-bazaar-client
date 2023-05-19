@@ -29,10 +29,10 @@ const Login = () => {
   }
 
   return (
-    <div>
+    <div style={{backgroundColor: "#c3af75"}}>
       <form onSubmit={handleLogin}>
-        <div className="hero min-h-screen bg-indigo-300">
-          <div className="hero-content flex-col">
+        <div className="hero min-h-screen">
+          <div className="hero-content flex-row">
             <div className="text-center lg:text-left">
               <h1 className="text-5xl font-bold">Please Login your Account</h1>
             </div>

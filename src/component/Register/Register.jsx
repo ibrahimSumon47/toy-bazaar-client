@@ -32,9 +32,9 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div style={{backgroundColor: "#fdfcfb"}}>
       <form onSubmit={handleForRegister}>
-        <div className="hero min-h-screen bg-indigo-300">
+        <div className="hero min-h-screen">
           <div className="hero-content flex-col">
             <div className="text-center lg:text-left">
               <h1 className="text-5xl font-bold">

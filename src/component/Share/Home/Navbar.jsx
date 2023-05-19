@@ -12,8 +12,8 @@ const Navbar = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="mx-10 md:mx-20 my-5">
-      <div className="navbar bg-base-100">
+    <div className="mx-10 md:mx-20 my-5" style={{backgroundColor: "#c3af75"}}>
+      <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
