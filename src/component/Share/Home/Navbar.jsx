@@ -99,6 +99,20 @@ const Navbar = () => {
               >All Toys Figure</Link>
             </li>
             <li>
+            {user && (
+                <div>
+                  <Link to="/myToys">My Toys</Link>
+                </div>
+              )}
+            </li>
+            <li>
+              {user && (
+                <div>
+                  <Link to="/addAToy">Add a Toy</Link>
+                </div>
+              )}
+            </li>
+            <li>
               {user && (
                 <div>
                   <img
