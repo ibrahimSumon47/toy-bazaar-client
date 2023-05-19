@@ -3,7 +3,7 @@ import React from 'react';
 const Brands = () => {
     return (
         <div>
-            <h3>All Brands are here</h3>
+            <h1 className="text-center text-5xl my-5 font-bold italic">All Brands are here</h1>
 
             <div className='flex'>
                 <img src="https://i.ibb.co/DGYKg0S/download.png" alt="" />
