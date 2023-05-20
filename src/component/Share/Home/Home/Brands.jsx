@@ -22,7 +22,7 @@ const Brands = () => {
   };
   return (
     <div>
-      <h1 className="text-center text-5xl my-5 font-bold italic">
+      <h1 className="text-center text-5xl p-5 mt-5 font-bold italic" style={{ backgroundColor: "#ab73ef", color: "#fcfbfd" }}>
         All Brands are here
       </h1>
 

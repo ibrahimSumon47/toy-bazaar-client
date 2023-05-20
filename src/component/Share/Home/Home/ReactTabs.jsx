@@ -31,7 +31,7 @@ const ReactTabs = () => {
           {reactTabs.length > 0 && (
             <>
               {/* Marvel Card 1 */}
-              <div className="card card-compact my-5 w-96 bg-base-100 shadow-xl">
+              <div className="card card-compact w-96 bg-base-100 shadow-xl">
                 <figure>
                   <img className="" src={reactTabs[0].photo} alt="Shoes" />
                 </figure>
@@ -69,7 +69,7 @@ const ReactTabs = () => {
           {reactTabs.length > 0 && (
             <>
               {/* DC Card 1 */}
-              <div className="card card-compact my-5 w-96 bg-base-100 shadow-xl">
+              <div className="card card-compact w-96 bg-base-100 shadow-xl">
                 <figure>
                   <img className="" src={reactTabs[2].photo} alt="Shoes" />
                 </figure>
@@ -107,7 +107,7 @@ const ReactTabs = () => {
           {reactTabs.length > 0 && (
             <>
               {/* StarWars Card 1 */}
-              <div className="card card-compact my-5 w-96 bg-base-100 shadow-xl ">
+              <div className="card card-compact w-96 bg-base-100 shadow-xl ">
                 <figure>
                   <img className="h-96" src={reactTabs[4].photo} alt="Shoes" />
                 </figure>

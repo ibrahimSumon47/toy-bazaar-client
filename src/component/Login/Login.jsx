@@ -29,32 +29,34 @@ const Login = () => {
   }
 
   return (
-    <div style={{backgroundColor: "#c3af75"}}>
+    <div className="md:mx-20" style={{backgroundColor: "#fcfbfd"}}>
       <form onSubmit={handleLogin}>
-        <div className="hero min-h-screen">
-          <div className="hero-content flex-row">
+        <div className="hero">
+          <div className="hero-content flex-col md:flex-row">
             <div className="text-center lg:text-left">
-              <h1 className="text-5xl font-bold">Please Login your Account</h1>
+              <img className="h-96" src="https://i.ibb.co/9mPDv3H/Gam-On-1.png" alt="" />
             </div>
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-slate-50">
+            
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl" style={{backgroundColor: "#262426", color: "#ab73ef"}} >
               <div className="card-body">
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Email</span>
-                  </label>
+                <h3 className="text-3xl text-center mb-5 font-extrabold">Login You Account</h3>
+                <div className="input-group">
+                  
+                    <span className="font-bold " style={{color: "#ab73ef"}}>Email</span>
+                  
                   <input
                     type="text"
                     id="email"
                     name="email"
                     placeholder="email"
                     required
-                    className="input input-bordered"
+                    className="input input-bordered w-96"
                   />
                 </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Password</span>
-                  </label>
+                <div className="input-group ">
+                  
+                    <span className="font-bold" style={{color: "#ab73ef"}}>Password</span>
+                  
                   <input
                     type="password"
                     id="password"
@@ -65,12 +67,12 @@ const Login = () => {
                   />
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Login</button>
+                  <button className="btn btn-outline" style={{backgroundColor:"#ab73ef"}}>Login</button>
                 </div>
                 <LoginGoogle />
                 <div>
-                  <p>
-                    Already Have an Account?<Link to="/register">Register</Link>
+                  <p className="mt-2">
+                    New to this site?<Link to="/register" className="btn btn-outline btn-warning">Register</Link>
                   </p>
                 </div>
               </div>

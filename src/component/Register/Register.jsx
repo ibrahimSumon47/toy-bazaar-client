@@ -32,21 +32,19 @@ const Register = () => {
   };
 
   return (
-    <div style={{backgroundColor: "#fdfcfb"}}>
+    <div className="md:mx-20" style={{backgroundColor: "#fcfbfd"}}>
       <form onSubmit={handleForRegister}>
-        <div className="hero min-h-screen">
-          <div className="hero-content flex-col">
+        <div className="hero">
+          <div className="hero-content flex-col md:flex-row">
             <div className="text-center lg:text-left">
-              <h1 className="text-5xl font-bold">
-                Please Register your Account
-              </h1>
+              
+              <img className="mr-10" src="https://i.ibb.co/1QRyLs8/Welcome-to-Toy-Bazaar.png" alt="" />
             </div>
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-slate-50">
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl" style={{backgroundColor: "#262426", color: "#ab73ef"}} >
               <div className="card-body">
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Your Name</span>
-                  </label>
+              <h3 className="text-2xl text-center mb-2 font-extrabold">Register Your Account</h3>
+                <div className="input-group">
+                    <span className="font-bold" style={{color: "#ab73ef"}}>Your Name</span>
                   <input
                     type="text"
                     id="text"
@@ -56,10 +54,8 @@ const Register = () => {
                     className="input input-bordered"
                   />
                 </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Photo URL</span>
-                  </label>
+                <div className="input-group">
+                    <span className="font-bold" style={{color: "#ab73ef"}}>Phot URL</span>
                   <input
                     type="text"
                     id="photo"
@@ -69,10 +65,8 @@ const Register = () => {
                     className="input input-bordered"
                   />
                 </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Email</span>
-                  </label>
+                <div className="input-group">
+                    <span className="font-bold" style={{color: "#ab73ef"}}>Your Email</span>
                   <input
                     type="text"
                     id="email"
@@ -82,10 +76,9 @@ const Register = () => {
                     className="input input-bordered"
                   />
                 </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Password</span>
-                  </label>
+                <div className="input-group">
+                    <span className="font-bold" style={{color: "#ab73ef"}}>Password</span>
+                  
                   <input
                     type="password"
                     id="password"
@@ -96,11 +89,11 @@ const Register = () => {
                   />
                 </div>
                 <div className="form-control mt-6">
-                  <Link to="/"><button className="btn btn-primary">Register</button></Link>
+                  <button className="btn btn-outline" style={{backgroundColor:"#ab73ef"}}>Register</button>
                 </div>
                 <div>
-                  <p>
-                    Already Have an Account?<Link to="/login">Login</Link>
+                <p className="mt-2">
+                    Already Have an Account?<Link to="/login" className="btn btn-outline btn-warning">Login</Link>
                   </p>
                 </div>
               </div>

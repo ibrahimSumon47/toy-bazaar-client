@@ -12,7 +12,10 @@ const Navbar = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="mx-10 md:mx-20 my-5" style={{backgroundColor: "#c3af75"}}>
+    <div
+      className="mx-10 md:mx-20 my-5"
+      style={{ backgroundColor: "#262426", color: "#fcfbfd" }}
+    >
       <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
@@ -33,16 +36,13 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black"
             >
               <li>
                 <Link to="/">Home</Link>
               </li>
               <li>
                 <Link to="/blog">Blog</Link>
-              </li>
-              <li>
-                <Link to="/contact">All Toy Figurs</Link>
               </li>
               <li>
                 <Link to="/login">Login</Link>
@@ -69,7 +69,7 @@ const Navbar = () => {
                 style={{ textDecoration: "none" }}
                 className={`${
                   location.pathname === "/"
-                    ? "bg-red-500 p-5 border rounded-lg"
+                    ? "bg-red-500 p-1 border rounded-lg"
                     : ""
                 }`}
                 to="/"
@@ -81,7 +81,7 @@ const Navbar = () => {
               style={{ textDecoration: "none" }}
               className={`${
                 location.pathname === "/blog"
-                  ? "bg-red-500 p-5 border rounded-lg"
+                  ? "bg-red-500 p-1 border rounded-lg"
                   : ""
               }`}
               to="/blog"
@@ -89,28 +89,45 @@ const Navbar = () => {
               <Link to="/blog">Blog</Link>
             </li>
             <li>
-              <Link style={{ textDecoration: "none" }}
+              <Link
+                style={{ textDecoration: "none" }}
                 className={`${
                   location.pathname === "/allToys"
-                    ? "bg-red-500 p-5 border rounded-lg"
+                    ? "bg-red-500 p-3 border rounded-lg"
                     : ""
                 }`}
                 to="/allToys"
-              >All Toys Figure</Link>
+              >
+                All Toys Figure
+              </Link>
             </li>
             <li>
-            {user && (
-                <div>
-                  <Link to="/myToys">My Toys</Link>
-                </div>
-              )}
+              <li>
+                <Link
+                  style={{ textDecoration: "none" }}
+                  className={`${
+                    location.pathname === "/myToys"
+                      ? "bg-red-500 p-3 border rounded-lg"
+                      : ""
+                  }`}
+                  to="/myToys"
+                >
+                  My Toys
+                </Link>
+              </li>
             </li>
             <li>
-              {user && (
-                <div>
-                  <Link to="/addAToy">Add a Toy</Link>
-                </div>
-              )}
+              <Link
+                style={{ textDecoration: "none" }}
+                className={`${
+                  location.pathname === "/addAToy"
+                    ? "bg-red-500 p-2 border rounded-lg"
+                    : ""
+                }`}
+                to="/addAToy"
+              >
+                Add a Toy
+              </Link>
             </li>
             <li>
               {user && (
@@ -135,7 +152,7 @@ const Navbar = () => {
                   style={{ textDecoration: "none" }}
                   className={`${
                     location.pathname === "/login"
-                      ? "bg-red-500 p-5 border rounded-lg"
+                      ? "bg-red-500 p-3 border rounded-lg"
                       : ""
                   }`}
                   to="/login"
@@ -152,7 +169,7 @@ const Navbar = () => {
                   style={{ textDecoration: "none" }}
                   className={`${
                     location.pathname === "/register"
-                      ? "bg-red-500 p-5 border rounded-lg"
+                      ? "bg-red-500 p-3 border rounded-lg"
                       : ""
                   }`}
                   to="/register"

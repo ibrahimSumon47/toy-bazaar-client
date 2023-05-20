@@ -22,10 +22,10 @@ const Gallery = () => {
   };
 
   return (
-    <div className="my-10" style={{ backgroundColor: "#c3af75" }}>
+    <div className="my-10" style={{ backgroundColor: "#ab73ef", color: "#fcfbfd" }}>
       <div>
-        <h1 className="text-center text-5xl my-5 font-bold italic">
-          Some of our collections
+        <h1 className="text-center text-5xl p-5 my-5 font-bold italic">
+          ToyBazaar Photo Gallery
         </h1>
       </div>
       <Slider {...settings} className="">
