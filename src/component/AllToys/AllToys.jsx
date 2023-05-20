@@ -7,15 +7,15 @@ const AllToys = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
 
-  const url = "http://localhost:5000/allToys";
+  const url = `http://localhost:5000/allToys`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
   return (
-    <div>
-      <h2>All Toys: {toys.length}</h2>
+    <div className="md:mx-20">
+      <h2 className="text-5xl my-3 text-center font-bold">All Toys Length: {toys.length}</h2>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           {/* head */}

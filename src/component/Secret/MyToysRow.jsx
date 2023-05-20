@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
-const MyToysRow = ({ myToy, handleDelete, handleUpdate }) => {
+const MyToysRow = ({ myToy, handleDelete }) => {
   const { _id, toyName, quantity, email, price, photo, category, details } =
     myToy;
   const { user } = useContext(AuthContext);
@@ -55,6 +55,7 @@ const MyToysRow = ({ myToy, handleDelete, handleUpdate }) => {
       <td>{category}</td>
       <td>{price}</td>
       <td>{quantity}</td>
+      <td>{details}</td>
       <th>
         <button className="btn btn-ghost btn-xs">details</button>
       </th>
@@ -105,7 +106,7 @@ const MyToysRow = ({ myToy, handleDelete, handleUpdate }) => {
               </div>
             </form>
             <div className="modal-action">
-              <label onClick={()=>{handleUpdate}} htmlFor="my-modal-5" className="btn">
+              <label onClick="" htmlFor="my-modal-5" className="btn">
                 Update
               </label>
             </div>

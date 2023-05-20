@@ -16,6 +16,7 @@ const AddAToy = () => {
     const price = form.price.value;
     const rating = form.rating.value;
     const quantity = form.quantity.value;
+    const details = form.details.value;
 
     const toyAddedBy = {
       photo,
@@ -26,6 +27,7 @@ const AddAToy = () => {
       price,
       rating,
       quantity,
+      details,
     };
     console.log(toyAddedBy);
 
@@ -39,16 +41,25 @@ const AddAToy = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if(data.insertedId){
+        if (data.insertedId) {
           Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Your toy has been added',
+            position: "top-end",
+            icon: "success",
+            title: "Your toy has been added",
             showConfirmButton: false,
-            timer: 1500
-          })
+            timer: 1500,
+          });
         }
       });
+
+      
+    fetch("http://localhost:5000/myToys", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(toyAddedBy),
+    })
   };
 
   return (

@@ -102,7 +102,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <li>
+              {user && (
                 <Link
                   style={{ textDecoration: "none" }}
                   className={`${
@@ -114,20 +114,23 @@ const Navbar = () => {
                 >
                   My Toys
                 </Link>
-              </li>
+              )}
             </li>
+
             <li>
-              <Link
-                style={{ textDecoration: "none" }}
-                className={`${
-                  location.pathname === "/addAToy"
-                    ? "bg-red-500 p-2 border rounded-lg"
-                    : ""
-                }`}
-                to="/addAToy"
-              >
-                Add a Toy
-              </Link>
+              {user && (
+                <Link
+                  style={{ textDecoration: "none" }}
+                  className={`${
+                    location.pathname === "/addAToy"
+                      ? "bg-red-500 p-2 border rounded-lg"
+                      : ""
+                  }`}
+                  to="/addAToy"
+                >
+                  Add a Toy
+                </Link>
+              )}
             </li>
             <li>
               {user && (

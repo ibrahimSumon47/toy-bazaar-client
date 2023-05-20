@@ -3,10 +3,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Link, useLoaderData } from "react-router-dom";
 
 const AllToysRow = ({ toy }) => {
-  const { _id,toyName, quantity, email, price, photo, category } = toy;
-  const { user } = useContext(AuthContext);
-
-
+  const { _id, toyName, quantity, email, price, photo, category } = toy;
 
   return (
     <tr>
@@ -32,7 +29,7 @@ const AllToysRow = ({ toy }) => {
       <td>{price}</td>
       <td>{quantity}</td>
       <th>
-        <Link to={`/details/${_id}`}><button className="btn btn-primary">Details</button></Link>
+        <Link to={`/allToyDetails/${_id}`}><button className="btn btn-primary">Details</button></Link>
       </th>
     </tr>
   );

@@ -13,6 +13,7 @@ import AddAToy from "./component/Secret/AddAToy";
 import MyToys from "./component/Secret/MyToys";
 import PrivateRoute from "./component/PrivateRoute";
 import Details from "./component/Share/Home/Details";
+import AllToysDetails from "./component/AllToys/AllToysDetails";
 
 const router = createBrowserRouter([
   {
@@ -40,8 +41,8 @@ const router = createBrowserRouter([
         element: <AllToys />,
       },
       {
-        path: "/details/:id",
-        element: <AllToys />,
+        path: "/details",
+        element: <AllToys />
       },
       {
         path: "myToys",
@@ -60,6 +61,11 @@ const router = createBrowserRouter([
         element: <PrivateRoute><Details /></PrivateRoute>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/reactTabs/${params.id}`),
+      },
+      {
+        path:"/allToyDetails/:id",
+        element: <PrivateRoute><AllToysDetails/></PrivateRoute>,
+        loader:({params})=>fetch(`http://localhost:5000/allToys/${params.id}`)
       },
     ],
   },

@@ -23,7 +23,7 @@ const Register = () => {
         form.reset();
         updateProfile(createdUser, {
           displayName: name,
-          photo: photo,
+          photoURL: photo,
         });
       })
       .catch((error) => {
