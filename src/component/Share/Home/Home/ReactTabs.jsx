@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const ReactTabs = () => {
   const [reactTabs, setReactTabs] = useState([]);
+  const {user} = useContext(AuthContext)
   const url = "http://localhost:5000/reactTabs";
 
   useEffect(() => {
@@ -11,6 +15,15 @@ const ReactTabs = () => {
       .then((res) => res.json())
       .then((data) => setReactTabs(data));
   }, []);
+
+  
+
+  const handleViewDetails = () =>{
+    if(!user){
+      toast("You have to login first view details");
+      return <Link to="/login">Login</Link>
+    }
+  }
 
   return (
     <Tabs>
@@ -21,12 +34,12 @@ const ReactTabs = () => {
       </TabList>
 
       <TabPanel>
-        <div className="md:flex gap-5">
+        <div className="md:flex gap-5 ">
           {/* Check if reactTabs has data before accessing its properties */}
           {reactTabs.length > 0 && (
             <>
               {/* Marvel Card 1 */}
-              <div className="card card-compact w-96 bg-base-100 shadow-xl">
+              <div className="card card-compact my-5 w-96 bg-base-100 shadow-xl">
                 <figure>
                   <img className="" src={reactTabs[0].photo} alt="Shoes" />
                 </figure>
@@ -35,7 +48,7 @@ const ReactTabs = () => {
                   <p>Price: {reactTabs[0].price}</p>
                   <p>Rating: {reactTabs[0].rating}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn btn-primary">View Details</button>
+                    <button onClick={handleViewDetails} className="btn btn-primary">View Details</button>
                   </div>
                 </div>
               </div>
@@ -64,7 +77,7 @@ const ReactTabs = () => {
           {reactTabs.length > 0 && (
             <>
               {/* DC Card 1 */}
-              <div className="card card-compact w-96 bg-base-100 shadow-xl">
+              <div className="card card-compact my-5 w-96 bg-base-100 shadow-xl">
                 <figure>
                   <img className="" src={reactTabs[2].photo} alt="Shoes" />
                 </figure>
@@ -80,7 +93,7 @@ const ReactTabs = () => {
               {/* DC Card 2 */}
               <div className="card card-compact w-96 bg-base-100 shadow-xl">
                 <figure>
-                  <img src={reactTabs[3].photo} alt="Shoes" />
+                  <img className="" src={reactTabs[3].photo} alt="Shoes" />
                 </figure>
                 <div className="card-body">
                   <h2 className="card-title">{reactTabs[3].toyName}</h2>
@@ -97,12 +110,12 @@ const ReactTabs = () => {
       </TabPanel>
       {/* Star Wars */}
       <TabPanel>
-        <div className="md:flex gap-5">
+        <div className="gap-5 md:flex">
           {/* Check if reactTabs has data before accessing its properties */}
           {reactTabs.length > 0 && (
             <>
               {/* StarWars Card 1 */}
-              <div className="card card-compact w-96 bg-base-100 shadow-xl">
+              <div className="card card-compact my-5 w-96 bg-base-100 shadow-xl ">
                 <figure>
                   <img className="h-96" src={reactTabs[4].photo} alt="Shoes" />
                 </figure>

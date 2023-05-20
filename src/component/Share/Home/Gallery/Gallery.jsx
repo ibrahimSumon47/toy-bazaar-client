@@ -22,7 +22,7 @@ const Gallery = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#c3af75" }}>
+    <div className="my-10" style={{ backgroundColor: "#c3af75" }}>
       <div>
         <h1 className="text-center text-5xl my-5 font-bold italic">
           Some of our collections
