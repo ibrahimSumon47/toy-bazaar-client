@@ -1,9 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllToysRow = ({ toy }) => {
-  const { sellerName, toyName, quantity, email, price, photo, category } = toy;
+  const { _id,toyName, quantity, email, price, photo, category } = toy;
   const { user } = useContext(AuthContext);
+
+
+
   return (
     <tr>
       <th>
@@ -28,7 +32,7 @@ const AllToysRow = ({ toy }) => {
       <td>{price}</td>
       <td>{quantity}</td>
       <th>
-        <button className="btn btn-ghost btn-xs">details</button>
+        <Link to={`/details/${_id}`}><button className="btn btn-primary">Details</button></Link>
       </th>
     </tr>
   );

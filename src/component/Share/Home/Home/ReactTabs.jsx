@@ -3,11 +3,12 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const ReactTabs = () => {
   const [reactTabs, setReactTabs] = useState([]);
   const {user} = useContext(AuthContext)
+  
   const url = "http://localhost:5000/reactTabs";
 
   useEffect(() => {
@@ -15,15 +16,6 @@ const ReactTabs = () => {
       .then((res) => res.json())
       .then((data) => setReactTabs(data));
   }, []);
-
-  
-
-  const handleViewDetails = () =>{
-    if(!user){
-      toast("You have to login first view details");
-      return <Link to="/login">Login</Link>
-    }
-  }
 
   return (
     <Tabs>
@@ -48,7 +40,7 @@ const ReactTabs = () => {
                   <p>Price: {reactTabs[0].price}</p>
                   <p>Rating: {reactTabs[0].rating}</p>
                   <div className="card-actions justify-end">
-                    <button onClick={handleViewDetails} className="btn btn-primary">View Details</button>
+                    <Link to={`/toyDetails/${reactTabs[0]._id}`}><button className="btn btn-primary">View Details</button></Link>
                   </div>
                 </div>
               </div>
@@ -62,7 +54,7 @@ const ReactTabs = () => {
                   <p>Price: {reactTabs[1].price}</p>
                   <p>Rating: {reactTabs[1].rating}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn btn-primary">View Details</button>
+                    <Link to={`/toyDetails/${reactTabs[1]._id}`}><button className="btn btn-primary">View Details</button></Link>
                   </div>
                 </div>
               </div>
@@ -86,7 +78,7 @@ const ReactTabs = () => {
                   <p>Price: {reactTabs[2].price}</p>
                   <p>Rating: {reactTabs[2].rating}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn btn-primary">View Details</button>
+                    <Link to={`/toyDetails/${reactTabs[2]._id}`}><button className="btn btn-primary">View Details</button></Link>
                   </div>
                 </div>
               </div>
@@ -100,7 +92,7 @@ const ReactTabs = () => {
                   <p>Price: {reactTabs[3].price}</p>
                   <p>Rating: {reactTabs[3].rating}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn btn-primary">View Details</button>
+                    <Link to={`/toyDetails/${reactTabs[3]._id}`}><button className="btn btn-primary">View Details</button></Link>
                   </div>
                 </div>
               </div>
@@ -124,7 +116,7 @@ const ReactTabs = () => {
                   <p>Price: {reactTabs[4].price}</p>
                   <p>Rating: {reactTabs[4].rating}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn btn-primary">View Details</button>
+                    <Link to={`/toyDetails/${reactTabs[4]._id}`}><button className="btn btn-primary">View Details</button></Link>
                   </div>
                 </div>
               </div>
@@ -138,7 +130,7 @@ const ReactTabs = () => {
                   <p>Price: {reactTabs[5].price}</p>
                   <p>Rating: {reactTabs[5].rating}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn btn-primary">View Details</button>
+                    <Link to={`/toyDetails/${reactTabs[5]._id}`}><button className="btn btn-primary">View Details</button></Link>
                   </div>
                 </div>
               </div>
