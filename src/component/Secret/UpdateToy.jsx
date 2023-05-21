@@ -1,10 +1,12 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const UpdateToy = () => {
-  const updateAToy = useLoaderData();
-  const { _id, price, quantity, details } = updateAToy;
+const UpdateToy = ({}) => {
+//   const updateAToy = useLoaderData();
+//   const { _id, price, quantity, details } = updateAToy;
+const { id } = useParams();
+console.log(id);
 
   const handleUpdateToy = (e) => {
     e.preventDefault();
@@ -14,8 +16,8 @@ const UpdateToy = () => {
     const quantity = form.quantity.value;
     const details = form.details.value;
     const updatedToy = { price, quantity, details };
-
-    fetch(`http://localhost:5000/allToys/${_id}`, {
+    console.log(updatedToy);
+    fetch(`http://localhost:5000/toyUpdateData/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +50,7 @@ const UpdateToy = () => {
             name="price"
             placeholder="Price of the toy"
             className="input input-bordered"
-            defaultValue={updateAToy[0].price}
+            // defaultValue={price}
           />
         </div>
         <div className="form-control">
@@ -60,7 +62,7 @@ const UpdateToy = () => {
             name="quantity"
             placeholder="Available Quantity"
             className="input input-bordered"
-            defaultValue={updateAToy[0].quantity}
+            // defaultValue={quantity}
           />
         </div>
         <div className="form-control">
@@ -72,7 +74,7 @@ const UpdateToy = () => {
             name="details"
             placeholder="Details of the toy"
             className="input input-bordered"
-            defaultValue={updateAToy[0].details}
+            // defaultValue={details}
           />
         </div>
         <div className="form-control my-6">

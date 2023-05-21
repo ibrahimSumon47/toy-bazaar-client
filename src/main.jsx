@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/details",
-        element: <AllToys />
+        element: <AllToys />,
       },
       {
         path: "myToys",
@@ -61,25 +61,35 @@ const router = createBrowserRouter([
       },
       {
         path: "toyDetails/:id",
-        element: <PrivateRoute><Details /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Details />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/reactTabs/${params.id}`),
       },
       {
-        path:"/allToyDetails/:id",
-        element: <PrivateRoute><AllToysDetails/></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/allToys/${params.id}`)
+        path: "/allToyDetails/:id",
+        element: (
+          <PrivateRoute>
+            <AllToysDetails />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allToys/${params.id}`),
       },
       {
         path: "/updateToy/:id",
-        element: <UpdateToy/>,
-        loader: ({params})=> fetch(`http://localhost:5000/allToys/${params.id}`)
+        element: <UpdateToy />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/updateToys/${params.id}`),
       },
-      {
-        path:"*",
-        element: <ErrorPage/>
-      }
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage />,
   },
 ]);
 
