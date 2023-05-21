@@ -9,10 +9,10 @@ const Newsletter = () => {
   });
   const handleSubscribe = () => {
     Swal.fire({
-      title: "Success!",
-      text: "Coffee Added Successfully",
+      title: "Subscribe Successfully",
+      text: "Welcome to Toy Bazaar",
       icon: "success",
-      confirmButtonText: "Cool",
+      confirmButtonText: "OK!",
     });
   };
   return (

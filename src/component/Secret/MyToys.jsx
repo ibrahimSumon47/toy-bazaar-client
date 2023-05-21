@@ -10,12 +10,12 @@ const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
   const [sortOrder, setSortOrder] = useState();
 
-  const url = `http://localhost:5000/myToys?email=${user.email}`;
+  const url = `http://localhost:5000/allToysEmail/${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMyToys(data));
-  }, [user.email]);
+  }, [user]);
 
   const handleDelete = (id) => {
     Swal.fire({
