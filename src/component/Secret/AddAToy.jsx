@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const AddAToy = () => {
+  useTitle("Add a toy")
   const { user } = useContext(AuthContext);
   const handleAddAToy = (e) => {
     e.preventDefault();
@@ -51,15 +53,6 @@ const AddAToy = () => {
           });
         }
       });
-
-      
-    fetch("http://localhost:5000/myToys", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(toyAddedBy),
-    })
   };
 
   return (
@@ -167,7 +160,7 @@ const AddAToy = () => {
           />
         </div>
 
-        <div className="form-control mt-6">
+        <div className="form-control my-6">
           <input className="btn btn-primary" type="submit" value="Add A Toy" />
         </div>
       </form>

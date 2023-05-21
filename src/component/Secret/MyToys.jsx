@@ -2,18 +2,20 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import MyToysRow from "./MyToysRow";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const MyToys = () => {
+  useTitle("My Toys");
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
+  const [sortOrder, setSortOrder] = useState();
 
-  const url = `http://localhost:5000/myToys?email${user?.email}`;
+  const url = `http://localhost:5000/myToys?email=${user.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMyToys(data));
-  }, []);
-  
+  }, [user.email]);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -26,7 +28,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/myToys/${id}`, {
+        fetch(`http://localhost:5000/allToys/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -42,26 +44,19 @@ const MyToys = () => {
     });
   };
 
-  // const handleUpdate = (id) => {
-  //   fetch(`http://localhost:5000/allToys/${id}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       if (data.modifiedCount > 0) {
-  //         const remaining = myToys.filter((myToy) => myToy._id !== id);
-  //         const updated = myToys.find((myToy) => myToy._id === id);
-  //         updated.status = "confirm";
-  //         const newToys = [updated, ...remaining];
-  //         setMyToys(newToys);
-  //       }
-  //     });
-  // };
+  const handleSort = (e) => {
+    const selectedOrder = e.target.value;
+    let sortedToys = [...myToys];
+
+    if (selectedOrder === "ascending") {
+      sortedToys.sort((a, b) => a.price - b.price);
+    } else if (selectedOrder === "descending") {
+      sortedToys.sort((a, b) => b.price - a.price);
+    }
+
+    setMyToys(sortedToys);
+    setSortOrder(selectedOrder);
+  };
 
   return (
     <div>
@@ -72,7 +67,19 @@ const MyToys = () => {
           {/* head */}
           <thead className="">
             <tr>
-              <th></th>
+              <th>
+                <select
+                  className="select select-bordered"
+                  value={sortOrder}
+                  onChange={handleSort}
+                >
+                  <option disabled selected>
+                    Sort by
+                  </option>
+                  <option value="ascending">Low Price</option>
+                  <option value="descending">High Price</option>
+                </select>
+              </th>
               <th className="text-center">Toy Name</th>
               <th className="text-center">Sub-category</th>
               <th className="text-center">Price</th>
@@ -87,7 +94,6 @@ const MyToys = () => {
                 key={myToy._id}
                 myToy={myToy}
                 handleDelete={handleDelete}
-                // handleUpdate={handleUpdate}
               ></MyToysRow>
             ))}
           </tbody>

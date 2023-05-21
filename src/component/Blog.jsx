@@ -1,8 +1,10 @@
 import React from "react";
+import useTitle from "../hooks/useTitle";
 
 const Blog = () => {
+  useTitle("Blog")
   return (
-    <div>
+    <div className="md:mx-20">
       <div className="border rounded my-5 p-5 italic text-2xl bg-indigo-400 text-white">
         <h3 className ="font-bold mb-3">
           Q. What is an access token and refresh token? How do they work and

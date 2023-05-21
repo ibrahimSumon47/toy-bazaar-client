@@ -30,32 +30,32 @@ const Gallery = () => {
       </div>
       <Slider {...settings} className="">
         <img
-          className="h-[500px] object-cover"
+          className="h-96"
           src="https://i.ibb.co/SK53v7L/eb71d288-e849-41ad-95ab-cbd8f90bb78e.jpg"
           alt=""
         />
         <img
-          className="h-[500px] object-cover"
+          className="h-96"
           src="https://i.ibb.co/VDjbrQF/81d-V-mwk-Ow-L-AC-UL600-SR600-600.jpg"
           alt=""
         />
         <img
-          className="h-[500px] object-cover"
+          className="h-96"
           src="https://i.ibb.co/3sc97v9/teenage-mutant-ninja-turtle-figure.webp"
           alt=""
         />
         <img
-          className="h-[500px] object-cover"
+          className="h-96"
           src="https://i.ibb.co/x808ZXm/pmdcij-04-cropped.jpg"
           alt=""
         />
         <img
-          className="w-96 h-[500px] object-cover"
+          className="h-96"
           src="https://i.ibb.co/88P1sxJ/download.jpg"
           alt=""
         />
         <img
-          className="w-96 h-[500px] object-cover"
+          className="w-96 h-96"
           src="https://i.ibb.co/Mc6Szc9/images-2.jpg"
           alt=""
         />

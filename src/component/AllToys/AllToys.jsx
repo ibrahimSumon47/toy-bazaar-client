@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { json } from "react-router-dom";
 import AllToysRow from "./AllToysRow";
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
+  useTitle("All Toys")
 
   const url = `http://localhost:5000/allToys`;
   useEffect(() => {
