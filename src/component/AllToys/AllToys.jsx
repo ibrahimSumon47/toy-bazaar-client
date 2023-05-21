@@ -4,7 +4,6 @@ import AllToysRow from "./AllToysRow";
 import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
-  const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
   useTitle("All Toys");
   const [searchText, setSearchText] = useState("");
@@ -20,8 +19,7 @@ const AllToys = () => {
     fetch(`http://localhost:5000/allToysSearch/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        setJobs(data);
+        setToys(data);
       });
   };
   return (
@@ -34,22 +32,18 @@ const AllToys = () => {
           {/* head */}
           <thead>
             <tr>
-              <th>
-              <div className="text-center">
-                <input
-                  onChange={(e) => setSearchText(e.target.value)}
-                  type="text"
-                  className="p-1"
-                />{" "}
-                <button onClick={handleSearch}>Search</button>
-              </div>
+              <th className="flex gap-10">
+                <span className="mt-2 md:mt-3">Toy Name </span>
+                <div className="text-center">
+                  <input
+                    onChange={(e) => setSearchText(e.target.value)}
+                    type="text"
+                    placeholder="Search by toy name"
+                    className="p-3 mr-3"
+                  />{" "}
+                  <button className="btn btn-primary" onClick={handleSearch}>Search</button>
+                </div>
               </th>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
-              <th>Toy Name</th>
               <th>Sub-category</th>
               <th>Price</th>
               <th>Available Quantity</th>
