@@ -1,10 +1,10 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const UpdateToy = ({}) => {
-//   const updateAToy = useLoaderData();
-//   const { _id, price, quantity, details } = updateAToy;
+  useTitle("Update Toy")
 const { id } = useParams();
 console.log(id);
 
@@ -39,7 +39,7 @@ console.log(id);
   };
 
   return (
-    <div>
+    <div className="md:mx-20">
       <form onSubmit={handleUpdateToy}>
         <div className="form-control">
           <label className="label">

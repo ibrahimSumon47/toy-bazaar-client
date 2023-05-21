@@ -2,8 +2,10 @@ import { Rating } from "@smastrom/react-rating";
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const AllToysDetails = () => {
+  useTitle("Toy Details")
   const allToyDetail = useLoaderData();
   const handleBuy = () => {
     Swal.fire({
@@ -31,6 +33,14 @@ const AllToysDetails = () => {
               <span className="font-bold">Seller:</span>{" "}
               {allToyDetail[0]?.sellerName}
             </p>
+            <p className="pb-6 text-2xl">
+              <span className="font-bold">Seller:</span>{" "}
+              {allToyDetail[0]?.email}
+            </p>
+            <p className="pb-6 text-2xl">
+              <span className="font-bold">Avaiable Quntity</span>{" "}
+              {allToyDetail[0]?.quantity}
+            </p>
             <div className="flex space-x-5 text-4xl">
               <p>
                 <span className="font-bold">Price:</span> $
@@ -46,6 +56,7 @@ const AllToysDetails = () => {
                   />{" "}
                 </span>
               </p>
+              
             </div>
             <button className="btn btn-primary mt-5" onClick={handleBuy}>Buy Now</button>
           </div>

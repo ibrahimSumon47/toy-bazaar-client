@@ -59,7 +59,7 @@ const Navbar = () => {
               src="https://img.freepik.com/free-vector/cute-cow-holding-balloon-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated-flat_138676-6546.jpg?w=360&t=st=1684369100~exp=1684369700~hmac=2c0217c84475925711a9a29edced7d6ce62f53d48398d0b759c35068eed9f08e"
               alt="ToyBazaar"
             />
-            ToyBazaar
+            Toy Bazaar
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

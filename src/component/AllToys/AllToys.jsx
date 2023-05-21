@@ -44,6 +44,7 @@ const AllToys = () => {
                   <button className="btn btn-primary" onClick={handleSearch}>Search</button>
                 </div>
               </th>
+              <th>Seller Name</th>
               <th>Sub-category</th>
               <th>Price</th>
               <th>Available Quantity</th>

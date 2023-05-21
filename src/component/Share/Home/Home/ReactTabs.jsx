@@ -3,16 +3,18 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
-import { Link, useLoaderData } from "react-router-dom";
+import {
+  Link,
+  useLoaderData,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 
 const ReactTabs = () => {
   const [reactTabs, setReactTabs] = useState([]);
-  const { user } = useContext(AuthContext);
-  function App() {
-    const [rating, setRating] = useState(0);
-  }
+
 
   const url = "http://localhost:5000/reactTabs";
 

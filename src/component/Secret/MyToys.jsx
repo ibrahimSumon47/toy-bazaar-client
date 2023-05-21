@@ -3,19 +3,32 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import MyToysRow from "./MyToysRow";
 import Swal from "sweetalert2";
 import useTitle from "../../hooks/useTitle";
+import { data } from "autoprefixer";
 
 const MyToys = () => {
   useTitle("My Toys");
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
-  const [sortOrder, setSortOrder] = useState();
+  const [sortField, setSortField] = useState("");
+
+  useEffect(() => {
+    if (sortField) {
+      const sortUrl = `http://localhost:5000/sortToys?toyName=${user?.email}&sort=${sortField}`;
+      fetch(sortUrl)
+        .then((res) => res.json())
+        .then((data) => setMyToys(data))
+        .catch((error) => {
+          console.log("Error sorting toys:", error);
+        });
+    }
+  }, [sortField]);
 
   const url = `http://localhost:5000/allToysEmail/${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMyToys(data));
-  }, [user]);
+  }, [user, sortField]);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -44,19 +57,7 @@ const MyToys = () => {
     });
   };
 
-  const handleSort = (e) => {
-    const selectedOrder = e.target.value;
-    let sortedToys = [...myToys];
 
-    if (selectedOrder === "ascending") {
-      sortedToys.sort((a, b) => a.price - b.price);
-    } else if (selectedOrder === "descending") {
-      sortedToys.sort((a, b) => b.price - a.price);
-    }
-
-    setMyToys(sortedToys);
-    setSortOrder(selectedOrder);
-  };
 
   return (
     <div>
@@ -70,22 +71,22 @@ const MyToys = () => {
               <th>
                 <select
                   className="select select-bordered"
-                  value={sortOrder}
-                  onChange={handleSort}
+                  value={sortField}
+                  onChange={(e)=> setSortField(e.target.value)}
                 >
-                  <option disabled selected>
+                  <option disabled value="">
                     Sort by
                   </option>
-                  <option value="ascending">Low Price</option>
-                  <option value="descending">High Price</option>
+                  <option value="asc">Ascending </option>
+                  <option value="desc">Descending </option>
                 </select>
               </th>
-              <th className="text-center">Toy Name</th>
-              <th className="text-center">Sub-category</th>
-              <th className="text-center">Price</th>
-              <th className="text-center">Available Quantity</th>
-              <th className="text-center">Details</th>
-              <th className="text-center">Update</th>
+              <th className="">Toy Name</th>
+              <th className="">Sub-category</th>
+              <th className="">Price</th>
+              <th className="">Available Quantity</th>
+              <th className="">Details</th>
+              <th className="">Update</th>
             </tr>
           </thead>
           <tbody>

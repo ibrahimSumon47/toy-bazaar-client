@@ -13,7 +13,7 @@ const MyToysRow = ({ myToy, handleDelete }) => {
       <th>
         <button
           onClick={() => handleDelete(_id)}
-          className="btn btn-sm btn-circle"
+          className="btn btn-sm btn-circle md:ml-10"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
