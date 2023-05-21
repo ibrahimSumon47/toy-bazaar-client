@@ -1,9 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Link, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AllToysRow = ({ toy }) => {
   const { _id, toyName, quantity, sellerName, price, photo, category } = toy;
+  const {user} = useContext(AuthContext)
+
+  const handleViewDetails = () => {
+    if (!user) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You Have To Login First!!",
+      });
+    }
+  };
 
   return (
     <tr>
@@ -27,7 +39,7 @@ const AllToysRow = ({ toy }) => {
       <td>{price}</td>
       <td>{quantity}</td>
       <th>
-        <Link to={`/allToyDetails/${_id}`}><button className="btn btn-primary">Details</button></Link>
+        <Link to={`/allToyDetails/${_id}`}><button onClick={handleViewDetails} className="btn btn-primary">Details</button></Link>
       </th>
     </tr>
   );

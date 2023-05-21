@@ -13,7 +13,7 @@ const MyToys = () => {
 
   useEffect(() => {
     if (sortField) {
-      const sortUrl = `http://localhost:5000/sortToys?toyName=${user?.email}&sort=${sortField}`;
+      const sortUrl = `https://toy-bazaar-server-ten.vercel.app/sortToys?toyName=${user?.email}&sort=${sortField}`;
       fetch(sortUrl)
         .then((res) => res.json())
         .then((data) => setMyToys(data))
@@ -23,7 +23,7 @@ const MyToys = () => {
     }
   }, [sortField]);
 
-  const url = `http://localhost:5000/allToysEmail/${user?.email}`;
+  const url = `https://toy-bazaar-server-ten.vercel.app/allToysEmail/${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -41,7 +41,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/allToys/${id}`, {
+        fetch(`https://toy-bazaar-server-ten.vercel.app/allToys/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -11,18 +11,29 @@ import {
 } from "react-router-dom";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import Swal from "sweetalert2";
 
 const ReactTabs = () => {
   const [reactTabs, setReactTabs] = useState([]);
+  const { user } = useContext(AuthContext);
 
-
-  const url = "http://localhost:5000/reactTabs";
+  const url = "https://toy-bazaar-server-ten.vercel.app/reactTabs";
 
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setReactTabs(data));
   }, []);
+
+  const handleViewDetails = () => {
+    if (!user) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You Have To Login First!!",
+      });
+    }
+  };
 
   return (
     <Tabs>
@@ -59,7 +70,7 @@ const ReactTabs = () => {
 
                   <div className="card-actions justify-end">
                     <Link to={`/toyDetails/${reactTabs[0]._id}`}>
-                      <button className="btn btn-primary">View Details</button>
+                      <button onClick={handleViewDetails} className="btn btn-primary">View Details</button>
                     </Link>
                   </div>
                 </div>
@@ -85,7 +96,12 @@ const ReactTabs = () => {
                   </p>
                   <div className="card-actions justify-end">
                     <Link to={`/toyDetails/${reactTabs[1]._id}`}>
-                      <button className="btn btn-primary">View Details</button>
+                      <button
+                        onClick={handleViewDetails}
+                        className="btn btn-primary"
+                      >
+                        View Details
+                      </button>
                     </Link>
                   </div>
                 </div>
@@ -121,7 +137,7 @@ const ReactTabs = () => {
                   </p>
                   <div className="card-actions justify-end">
                     <Link to={`/toyDetails/${reactTabs[2]._id}`}>
-                      <button className="btn btn-primary">View Details</button>
+                      <button onClick={handleViewDetails} className="btn btn-primary">View Details</button>
                     </Link>
                   </div>
                 </div>
@@ -147,7 +163,7 @@ const ReactTabs = () => {
                   </p>
                   <div className="card-actions justify-end">
                     <Link to={`/toyDetails/${reactTabs[3]._id}`}>
-                      <button className="btn btn-primary">View Details</button>
+                      <button onClick={handleViewDetails} className="btn btn-primary">View Details</button>
                     </Link>
                   </div>
                 </div>
@@ -183,7 +199,7 @@ const ReactTabs = () => {
                   </p>
                   <div className="card-actions justify-end">
                     <Link to={`/toyDetails/${reactTabs[4]._id}`}>
-                      <button className="btn btn-primary">View Details</button>
+                      <button onClick={handleViewDetails} className="btn btn-primary">View Details</button>
                     </Link>
                   </div>
                 </div>
@@ -209,7 +225,7 @@ const ReactTabs = () => {
                   </p>
                   <div className="card-actions justify-end">
                     <Link to={`/toyDetails/${reactTabs[5]._id}`}>
-                      <button className="btn btn-primary">View Details</button>
+                      <button onClick={handleViewDetails} className="btn btn-primary">View Details</button>
                     </Link>
                   </div>
                 </div>

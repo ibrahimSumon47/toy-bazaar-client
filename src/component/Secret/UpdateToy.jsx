@@ -17,7 +17,7 @@ console.log(id);
     const details = form.details.value;
     const updatedToy = { price, quantity, details };
     console.log(updatedToy);
-    fetch(`http://localhost:5000/toyUpdateData/${id}`, {
+    fetch(`https://toy-bazaar-server-ten.vercel.app/toyUpdateData/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
