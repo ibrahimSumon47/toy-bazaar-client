@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Heading from "../../../Heading/Heading";
 
 const Gallery = () => {
   const settings = {
@@ -10,6 +11,7 @@ const Gallery = () => {
     speed: 500, // Transition speed in milliseconds
     slidesToShow: 3, // Number of slides to show at once
     slidesToScroll: 1, // Number of slides to scroll when navigating
+    arrows:false,
     responsive: [
       {
         breakpoint: 768, // Screen width at which the settings should change
@@ -22,11 +24,9 @@ const Gallery = () => {
   };
 
   return (
-    <div className="my-10" style={{ backgroundColor: "#ab73ef", color: "#fcfbfd" }}>
+    <div>
       <div>
-        <h1 className="text-center text-5xl p-5 my-5 font-bold italic">
-          ToyBazaar Photo Gallery
-        </h1>
+        <Heading heading="ToyBazaar Photo Gallery"/>
       </div>
       <Slider {...settings} className="">
         <img

@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Heading from "../../../Heading/Heading";
 
 const Brands = () => {
   const settings = {
@@ -10,6 +11,7 @@ const Brands = () => {
     speed: 500, // Transition speed in milliseconds
     slidesToShow: 3, // Number of slides to show at once
     slidesToScroll: 1, // Number of slides to scroll when navigating
+    arrows: false,
     responsive: [
       {
         breakpoint: 768, // Screen width at which the settings should change
@@ -22,9 +24,8 @@ const Brands = () => {
   };
   return (
     <div>
-      <h1 className="text-center text-5xl p-5 mt-5 font-bold italic" style={{ backgroundColor: "#ab73ef", color: "#fcfbfd" }}>
-        All Brands are here
-      </h1>
+      <Heading heading="All Brands are here
+"/>
 
       <Slider {...settings}>
         <img className="md:h-96" src="https://i.ibb.co/DGYKg0S/download.png" alt="" />

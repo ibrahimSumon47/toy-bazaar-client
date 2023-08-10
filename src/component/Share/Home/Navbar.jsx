@@ -11,9 +11,53 @@ const Navbar = () => {
       .then()
       .catch((err) => console.log(err));
   };
+
+  const navOption = (
+    <>
+      <li>
+        <Link className="text-2xl" to="/">
+          Home
+        </Link>
+      </li>
+      <li>
+        <Link className="text-2xl" to="/blog">
+          Blog
+        </Link>
+      </li>
+      <li>
+        <Link className="text-2xl" to="/allToys">
+          All Toys Figure
+        </Link>
+      </li>
+      <li>
+        <Link className="text-2xl" to="/about">
+          About
+        </Link>
+      </li>
+      <li>
+        <Link className="text-2xl" to="/review">
+          Review
+        </Link>
+      </li>
+      <li>
+        {user && (
+          <Link className="text-2xl" to="/myToys">
+            My Toys
+          </Link>
+        )}
+      </li>
+      <li>
+        {user && (
+          <Link className="text-2xl" to="/addAToy">
+            Add a Toy
+          </Link>
+        )}
+      </li>
+    </>
+  );
   return (
     <div
-      className="mx-10 md:mx-20 my-5"
+      className="lg:mx-20"
       style={{ backgroundColor: "#262426", color: "#fcfbfd" }}
     >
       <div className="navbar">
@@ -38,18 +82,7 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black"
             >
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/blog">Blog</Link>
-              </li>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li>
-                <Link to="/register">Sign Up</Link>
-              </li>
+              {navOption}
             </ul>
           </div>
 
@@ -63,125 +96,36 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <Link
-                style={{ textDecoration: "none" }}
-                className={`${
-                  location.pathname === "/"
-                    ? "bg-red-500 p-1 border rounded-lg"
-                    : ""
-                }`}
-                to="/"
-              >
-                Home
-              </Link>
-            </li>
-            <li
-              style={{ textDecoration: "none" }}
-              className={`${
-                location.pathname === "/blog"
-                  ? "bg-red-500 p-1 border rounded-lg"
-                  : ""
-              }`}
-              to="/blog"
-            >
-              <Link to="/blog">Blog</Link>
-            </li>
-            <li>
-              <Link
-                style={{ textDecoration: "none" }}
-                className={`${
-                  location.pathname === "/allToys"
-                    ? "bg-red-500 p-3 border rounded-lg"
-                    : ""
-                }`}
-                to="/allToys"
-              >
-                All Toys Figure
-              </Link>
-            </li>
-            <li>
-              {user && (
-                <Link
-                  style={{ textDecoration: "none" }}
-                  className={`${
-                    location.pathname === "/myToys"
-                      ? "bg-red-500 p-3 border rounded-lg"
-                      : ""
-                  }`}
-                  to="/myToys"
-                >
-                  My Toys
-                </Link>
-              )}
-            </li>
+          <ul className="menu menu-horizontal px-1">{navOption}</ul>
+        </div>
+        <div className="navbar-end gap-x-10">
+          {user && (
+            <div>
+              <img
+                title={user.displayName}
+                className="rounded-xl"
+                style={{ width: "30px", height: "30px" }}
+                src={user.photoURL}
+                alt=""
+              />
+            </div>
+          )}
 
-            <li>
-              {user && (
-                <Link
-                  style={{ textDecoration: "none" }}
-                  className={`${
-                    location.pathname === "/addAToy"
-                      ? "bg-red-500 p-2 border rounded-lg"
-                      : ""
-                  }`}
-                  to="/addAToy"
-                >
-                  Add a Toy
-                </Link>
-              )}
-            </li>
-            <li>
-              {user && (
-                <div>
-                  <img
-                    title={user.displayName}
-                    className="rounded-xl"
-                    style={{ width: "30px", height: "30px" }}
-                    src={user.photoURL}
-                    alt=""
-                  />
-                </div>
-              )}
-            </li>
-            <li>
-              {user ? (
-                <div className="">
-                  <button onClick={handleLogout}>Logout</button>
-                </div>
-              ) : (
-                <Link
-                  style={{ textDecoration: "none" }}
-                  className={`${
-                    location.pathname === "/login"
-                      ? "bg-red-500 p-3 border rounded-lg"
-                      : ""
-                  }`}
-                  to="/login"
-                >
+          {user ? (
+            <>
+              <button className="btn btn-primary hover:bg-green-700" onClick={handleLogout}>
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login">
+                <button className="btn btn-primary hover:bg-green-700">
                   Login
-                </Link>
-              )}
-            </li>
-            <li>
-              {user ? (
-                <></>
-              ) : (
-                <Link
-                  style={{ textDecoration: "none" }}
-                  className={`${
-                    location.pathname === "/register"
-                      ? "bg-red-500 p-3 border rounded-lg"
-                      : ""
-                  }`}
-                  to="/register"
-                >
-                  Register
-                </Link>
-              )}
-            </li>
-          </ul>
+                </button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>

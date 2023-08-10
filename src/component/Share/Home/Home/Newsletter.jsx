@@ -18,14 +18,14 @@ const Newsletter = () => {
   return (
     <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
       <div
-        className=" items-center glass p-5 md:px-[650px] my-5 shadow-xl"
+        className=" items-center glass md:px-40 p-5 my-5 shadow-xl justify-center text-center"
         style={{ backgroundColor: "#ab73ef", color: "#fcfbfd" }}
       >
         <span className="text-3xl font-semibold italic">
           Subscribe to our newsletter so you don't miss any discount
         </span>
-        <div className="form-control w-80">
-          <label className="label">
+        <div className="form-control w-80 text-center mx-auto">
+          <label className="items-center text-center">
             <span className="label-text">Enter your email address</span>
           </label>
           <div className="relative text-black">

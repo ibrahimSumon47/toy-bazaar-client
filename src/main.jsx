@@ -17,6 +17,8 @@ import MyToysRow from "./component/Secret/MyToysRow";
 import ErrorPage from "./component/ErrorPage";
 import UpdateToy from "./component/Secret/UpdateToy";
 import ReactTabsDetail from "./component/Share/Home/Home/ReactTabsDetails";
+import Reviews from "./component/Share/Home/Reviews";
+import About from "./component/Share/Home/Home/About";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,8 @@ const router = createBrowserRouter([
         path: "/blog",
         element: <Blog />,
       },
+      { path: "/review", element: <Reviews /> },
+      { path: "/about", element: <About /> },
       {
         path: "/login",
         element: <Login />,
@@ -63,11 +67,13 @@ const router = createBrowserRouter([
         path: "toyDetails/:id",
         element: (
           <PrivateRoute>
-            <ReactTabsDetail/>
+            <ReactTabsDetail />
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://toy-bazaar-server-ten.vercel.app/reactTabs/${params.id}`),
+          fetch(
+            `https://toy-bazaar-server-ten.vercel.app/reactTabs/${params.id}`
+          ),
       },
       {
         path: "/allToyDetails/:id",
@@ -77,13 +83,17 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://toy-bazaar-server-ten.vercel.app/allToys/${params.id}`),
+          fetch(
+            `https://toy-bazaar-server-ten.vercel.app/allToys/${params.id}`
+          ),
       },
       {
         path: "/updateToy/:id",
         element: <UpdateToy />,
         loader: ({ params }) =>
-          fetch(`https://toy-bazaar-server-ten.vercel.app/updateToys/${params.id}`),
+          fetch(
+            `https://toy-bazaar-server-ten.vercel.app/updateToys/${params.id}`
+          ),
       },
     ],
   },

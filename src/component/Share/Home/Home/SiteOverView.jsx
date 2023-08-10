@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "aos/dist/aos.css";
 import Aos from "aos";
+import Heading from "../../../Heading/Heading";
 
 const SiteOverView = () => {
   useEffect(() => {
@@ -8,13 +9,8 @@ const SiteOverView = () => {
   });
   return (
     <div data-aos="fade-right">
-      <h2
-        className="text-center my-10 text-4xl font-bold p-5"
-        style={{ backgroundColor: "#ab73ef", color: "#fcfbfd" }}
-      >
-        ToyBazaar Overview
-      </h2>
-      <div className="stats stats-vertical lg:stats-horizontal shadow-lg text-center md:mx-96 ">
+      <Heading heading="ToyBazaar Overview"/>
+      <div className="stats stats-vertical lg:stats-horizontal shadow-lg text-center justify-center items-center mx-14 md:mx-56 lg:mx-80 ">
         <div className="stat px-9">
           <div className="stat-title text-3xl">This Week Total view</div>
           <div className="stat-value text-5xl py-2">31K</div>
