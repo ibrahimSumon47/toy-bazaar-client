@@ -1,20 +1,28 @@
 import Aos from "aos";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import "aos/dist/aos.css";
 
 const Newsletter = () => {
-  useEffect(() => {
-    Aos.init();
-  });
+  const [email, setEmail] = useState("");
+
   const handleSubscribe = () => {
-    Swal.fire({
-      title: "Subscribe Successfully",
-      text: "Welcome to Toy Bazaar",
-      icon: "success",
-      confirmButtonText: "OK!",
-    });
+    fetch("https://toy-bazaar-server-ten.vercel.app/subscribe-email", { // Use the appropriate server URL
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert(data.message); // Display the server's response
+      })
+      .catch((error) => {
+        console.error("Subscription failed:", error);
+      });
   };
+
   return (
     <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
       <div
@@ -30,9 +38,10 @@ const Newsletter = () => {
           </label>
           <div className="relative text-black">
             <input
-              type="text"
-              placeholder="username@site.com"
+              type="email"
+              value={email}
               className="input input-bordered w-full pr-16"
+              onChange={(e) => setEmail(e.target.value)}
             />
             <button
               onClick={handleSubscribe}

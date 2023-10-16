@@ -54,25 +54,25 @@ const ReactTabs = () => {
                 {/* Marvel Card 1 */}
                 <div className="card card-compact md:w-96 bg-base-100 shadow-xl px-0 my-5">
                   <figure>
-                    <img className="" src={reactTabs[1].photo} alt="" />
+                    <img className="" src={reactTabs[0].photo} alt="" />
                   </figure>
                   <div
                     className="card-body rounded-b-lg"
                     style={{ backgroundColor: "#262426", color: "#fcfbfd" }}
                   >
-                    <h2 className="card-title">{reactTabs[1].toyName}</h2>
+                    <h2 className="card-title">{reactTabs[0].toyName}</h2>
                     <p>Price: ${reactTabs[0].price}</p>
                     <p className="flex gap-1">
                       Rating:
                       <Rating
                         style={{ maxWidth: 100 }}
-                        value={reactTabs[1].rating}
+                        value={reactTabs[0].rating}
                         readOnly
                       />{" "}
                     </p>
 
                     <div className="card-actions justify-end">
-                      <Link to={`/toyDetails/${reactTabs[1]._id}`}>
+                      <Link to={`/toyDetails/${reactTabs[0]._id}`}>
                         <button
                           onClick={handleViewDetails}
                           className="btn btn-primary"
@@ -86,24 +86,24 @@ const ReactTabs = () => {
                 {/* Marvel Card 2 */}
                 <div className="card card-compact md:w-96 bg-base-100 shadow-xl px-0 my-5">
                   <figure>
-                    <img src={reactTabs[4].photo} alt="Shoes" />
+                    <img src={reactTabs[1].photo} alt="Shoes" />
                   </figure>
                   <div
                     className="card-body rounded-b-lg"
                     style={{ backgroundColor: "#262426", color: "#fcfbfd" }}
                   >
-                    <h2 className="card-title">{reactTabs[4].toyName}</h2>
-                    <p>Price: ${reactTabs[4].price}</p>
+                    <h2 className="card-title">{reactTabs[1].toyName}</h2>
+                    <p>Price: ${reactTabs[1].price}</p>
                     <p className="flex gap-1">
                       Rating:
                       <Rating
                         style={{ maxWidth: 100 }}
-                        value={reactTabs[4].rating}
+                        value={reactTabs[1].rating}
                         readOnly
                       />{" "}
                     </p>
                     <div className="card-actions justify-end">
-                      <Link to={`/toyDetails/${reactTabs[4]._id}`}>
+                      <Link to={`/toyDetails/${reactTabs[1]._id}`}>
                         <button
                           onClick={handleViewDetails}
                           className="btn btn-primary"
@@ -158,24 +158,24 @@ const ReactTabs = () => {
                 {/* DC Card 2 */}
                 <div className="card card-compact md:w-96 bg-base-100 shadow-xl my-5">
                   <figure>
-                    <img className="" src={reactTabs[0].photo} alt="" />
+                    <img className="" src={reactTabs[3].photo} alt="" />
                   </figure>
                   <div
                     className="card-body rounded-b-lg"
                     style={{ backgroundColor: "#262426", color: "#fcfbfd" }}
                   >
-                    <h2 className="card-title">{reactTabs[0].toyName}</h2>
-                    <p>Price: ${reactTabs[0].price}</p>
+                    <h2 className="card-title">{reactTabs[3].toyName}</h2>
+                    <p>Price: ${reactTabs[3].price}</p>
                     <p className="flex gap-1">
                       Rating:
                       <Rating
                         style={{ maxWidth: 100 }}
-                        value={reactTabs[0].rating}
+                        value={reactTabs[3].rating}
                         readOnly
                       />{" "}
                     </p>
                     <div className="card-actions justify-end">
-                      <Link to={`/toyDetails/${reactTabs[0]._id}`}>
+                      <Link to={`/toyDetails/${reactTabs[3]._id}`}>
                         <button
                           onClick={handleViewDetails}
                           className="btn btn-primary"
@@ -201,7 +201,7 @@ const ReactTabs = () => {
                   <figure>
                     <img
                       className="h-96"
-                      src={reactTabs[3].photo}
+                      src={reactTabs[4].photo}
                       alt="Shoes"
                     />
                   </figure>
@@ -209,18 +209,18 @@ const ReactTabs = () => {
                     className="card-body rounded-b-lg"
                     style={{ backgroundColor: "#262426", color: "#fcfbfd" }}
                   >
-                    <h2 className="card-title">{reactTabs[3].toyName}</h2>
-                    <p>Price: {reactTabs[3].price}</p>
+                    <h2 className="card-title">{reactTabs[4].toyName}</h2>
+                    <p>Price: {reactTabs[4].price}</p>
                     <p className="flex gap-1">
                       Rating:
                       <Rating
                         style={{ maxWidth: 100 }}
-                        value={reactTabs[3].rating}
+                        value={reactTabs[4].rating}
                         readOnly
                       />{" "}
                     </p>
                     <div className="card-actions justify-end">
-                      <Link to={`/toyDetails/${reactTabs[3]._id}`}>
+                      <Link to={`/toyDetails/${reactTabs[4]._id}`}>
                         <button
                           onClick={handleViewDetails}
                           className="btn btn-primary"

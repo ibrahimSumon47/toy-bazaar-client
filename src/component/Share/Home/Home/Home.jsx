@@ -8,6 +8,7 @@ import Newsletter from './Newsletter';
 import useTitle from '../../../../hooks/useTitle';
 import Reviews from '../Reviews';
 import About from './About';
+import Contact from './Contact';
 
 const Home = () => {
     useTitle("Home")
@@ -18,6 +19,7 @@ const Home = () => {
             <Gallery />
             <ReactTabs/>
             <Brands/>
+            <Contact/>/
             <SiteOverView/>
             <Reviews/>
             <Newsletter/>
